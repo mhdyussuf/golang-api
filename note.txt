@@ -1,0 +1,20 @@
+
+Assignment Tasks 
+1. Database Schema Design
+    ● Entities: ERD.png
+    ● Task: db_golang.sql
+2. REST API Development 
+    ● Develop the following endpoints: In Project
+
+3. API Documentation (OpenAPI)
+    ● Task: 
+        not completed
+
+4. Unit Test : 
+    - go test tests\user_test.go 
+    - go test tests\message_test.go 
+    
+5. Dockerization
+    ● Task:
+        not completed
+

@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "ca254e12-c4e7-4c7d-adc9-9682b845e7a5",
+		"name": "api-testing-golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6821721",
+		"_collection_link": ""
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"johndoe77\",\r\n    \"email\": \"johndoe77@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9800/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9800",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Id User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9800/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9800",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Message by id conversation",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": 1,\r\n    \"content\": \"hi apa kabar!\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9800/conversations/1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9800",
+					"path": [
+						"conversations",
+						"1",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Conversation by id Conversation",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9800/conversations/1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9800",
+					"path": [
+						"conversations",
+						"1",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
