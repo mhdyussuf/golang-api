@@ -19,7 +19,7 @@
 
 1. Install dependencies:
    ```bash
-   go mod init golang
+   go mod init golang-api
    go mod tidy
    ```
 

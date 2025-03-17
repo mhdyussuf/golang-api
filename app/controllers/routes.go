@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"golang/app/handlers"
+	"golang-api/app/handlers"
 
 	"github.com/gin-gonic/gin"
 )

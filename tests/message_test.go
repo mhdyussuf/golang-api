@@ -4,12 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"golang-api/app/handlers"
+	"golang-api/app/models"
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
-	"golang/app/handlers"
-	"golang/app/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"

@@ -1,6 +1,6 @@
 package main
 
-import "golang/app"
+import "golang-api/app"
 
 func main() {
 	app.Run()

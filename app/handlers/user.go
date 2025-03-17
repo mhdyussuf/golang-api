@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"golang/app/models"
+	"golang-api/app/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

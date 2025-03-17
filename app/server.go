@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"golang/app/controllers"
+	"golang-api/app/controllers"
 
 	"github.com/joho/godotenv"
 )
