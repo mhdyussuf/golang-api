@@ -29,7 +29,6 @@
    ```
 
 3. Access the API at `http://localhost:9800`
-4. Access Swagger documentation at `http://localhost:8080/swagger/index.html`
 
 ### Running Tests
 before run test please edit on file user and message test username:password database internal

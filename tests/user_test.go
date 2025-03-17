@@ -6,7 +6,9 @@ import (
 	"fmt"
 	"net/http"
 	"net/http/httptest"
+	"strconv"
 	"testing"
+	"time"
 
 	"golang-api/app/handlers"
 	"golang-api/app/models"
@@ -40,9 +42,14 @@ func TestCreateUser(t *testing.T) {
 	router := SetUpRouter()
 	router.POST("/users", userHandler.CreateUser)
 
+	// generate unique email , unique usernam
+	timestamp := strconv.FormatInt(time.Now().UnixNano(), 10)
+	uniqueUsername := fmt.Sprintf("johndoe_%s", timestamp)
+	uniqueEmail := fmt.Sprintf("john_%s@example.com", timestamp)
+
 	user := models.User{
-		Username: "johndoe20",
-		Email:    "john20@example.com",
+		Username: uniqueUsername,
+		Email:    uniqueEmail,
 		Password: "password123",
 	}
 
@@ -63,9 +70,14 @@ func TestGetUserByID(t *testing.T) {
 	router := SetUpRouter()
 	router.GET("/users/:id", userHandler.GetUserByID)
 
+	// generate unique email , unique usernam
+	timestamp := strconv.FormatInt(time.Now().UnixNano(), 10)
+	uniqueUsername := fmt.Sprintf("johndoe_%s", timestamp)
+	uniqueEmail := fmt.Sprintf("john_%s@example.com", timestamp)
+
 	user := models.User{
-		Username: "johndoe99",
-		Email:    "john99@example.com",
+		Username: uniqueUsername,
+		Email:    uniqueEmail,
 		Password: "password123",
 	}
 	db.Create(&user)

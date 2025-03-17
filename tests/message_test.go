@@ -8,7 +8,9 @@ import (
 	"golang-api/app/models"
 	"net/http"
 	"net/http/httptest"
+	"strconv"
 	"testing"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
@@ -59,9 +61,14 @@ func TestGetMessagesByConversationID(t *testing.T) {
 	router := SetUpRouterMessage()
 	router.GET("/conversations/:conversation_id/messages", messageHandler.GetMessagesByConversationID)
 
+	// generate unique email , unique usernam
+	timestamp := strconv.FormatInt(time.Now().UnixNano(), 10)
+	uniqueUsername := fmt.Sprintf("johndoe_%s", timestamp)
+	uniqueEmail := fmt.Sprintf("john_%s@example.com", timestamp)
+
 	user := models.User{
-		Username: "johndoe11",
-		Email:    "john11@example.com",
+		Username: uniqueUsername,
+		Email:    uniqueEmail,
 		Password: "password123",
 	}
 	db.Create(&user)
