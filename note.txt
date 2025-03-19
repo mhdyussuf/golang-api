@@ -16,5 +16,5 @@ Assignment Tasks
     
 5. Dockerization
     ● Task:
-        not completed
+        completed
 

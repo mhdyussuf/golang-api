@@ -5,7 +5,10 @@
 
 - Go 1.20 or higher
 - MySQL server
+### Running with Docker
+1. docker-compose -f app.yaml up -d
 
+### Running Manual
 ### Database Setup
 1. Create a MySQL database named `db_golang`:
    ```sql
@@ -36,4 +39,6 @@ before run test please edit on file user and message test username:password data
 go test tests\user_test.go
 go test tests\message_test.go
 ```
+
+go get "github.com/swaggo/gin-swagger"
 

@@ -36,7 +36,6 @@ func Run() {
 		dbConfig.DBUser = getEnv("DB_USER", "user")
 		dbConfig.DBPassword = getEnv("DB_PASSWORD", "password")
 		dbConfig.DBName = getEnv("DB_NAME", "dbname")
-		dbConfig.DBPort = getEnv("DB_PORT", "5432")
 	} else {
 
 		appConfig.AppName = os.Getenv("APP_NAME")
@@ -47,7 +46,6 @@ func Run() {
 		dbConfig.DBUser = os.Getenv("DB_USER")
 		dbConfig.DBPassword = os.Getenv("DB_PASSWORD")
 		dbConfig.DBName = os.Getenv("DB_NAME")
-		dbConfig.DBPort = os.Getenv("DB_PORT")
 
 	}
 

@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+	"golang-api/app/models"
 	"log"
 	"net/http"
 
@@ -20,7 +21,6 @@ type DBConfig struct {
 	DBUser     string
 	DBPassword string
 	DBName     string
-	DBPort     string
 }
 type Server struct {
 	DB     *gorm.DB
@@ -42,10 +42,21 @@ func (server *Server) Run(addr string) {
 func (server *Server) initializeDB(dbConfig DBConfig) {
 
 	var err error
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", dbConfig.DBUser, dbConfig.DBPassword, dbConfig.DBHost, dbConfig.DBPort, dbConfig.DBName)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", dbConfig.DBUser, dbConfig.DBPassword, dbConfig.DBHost, dbConfig.DBName)
 	server.DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		panic("Failed on connecting to the database server")
 	}
+
+	// untuk migrate database nya
+	for _, model := range models.RegisterModels() {
+		err := server.DB.Debug().AutoMigrate(model.Model)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	fmt.Println("Database Migrate Success")
 }
