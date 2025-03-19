@@ -14,6 +14,17 @@ type UserHandler struct {
 	DB *gorm.DB
 }
 
+// CreateUser godoc
+//
+//	@Summary		Create an user
+//	@Description	Create User
+//	@Tags			users
+//	@Accept			json
+//	@Produce		json
+//	@Param			request	body		models.UserCreate	true	"query params"
+//	@Success		200		{object}	models.UserResponse
+//	@Failure		500		{object}	models.ErrorResponse
+//	@Router			/users [post]
 func (h *UserHandler) CreateUser(c *gin.Context) {
 	var user models.User
 	if err := c.ShouldBindJSON(&user); err != nil {
@@ -35,6 +46,17 @@ func (h *UserHandler) CreateUser(c *gin.Context) {
 	c.JSON(http.StatusCreated, response)
 }
 
+// ShowUser godoc
+//
+//	@Summary		Show an user
+//	@Description	get string by ID
+//	@Tags			users
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		int	true	"User ID"
+//	@Success		200	{object}	models.UserResponse
+//	@Failure		404	{object}	models.ErrorResponse
+//	@Router			/users/{id} [get]
 func (h *UserHandler) GetUserByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {

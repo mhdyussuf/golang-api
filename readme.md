@@ -40,5 +40,3 @@ go test tests\user_test.go
 go test tests\message_test.go
 ```
 
-go get "github.com/swaggo/gin-swagger"
-

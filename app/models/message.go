@@ -21,3 +21,12 @@ type MessageResponse struct {
 	Content        string    `json:"content"`
 	CreatedAt      time.Time `json:"sent_at"`
 }
+
+type MessageCreate struct {
+	UserId  uint   `json:"user_id" example:"1"`
+	Content string `json:"content" example:"Hai Apa kabar?"`
+}
+
+type ErrorMsgResponse struct {
+	Error string `json:"error"`
+}

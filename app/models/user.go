@@ -22,3 +22,13 @@ type UserResponse struct {
 	Email     string    `json:"email"`
 	CreatedAt time.Time `json:"created_at"`
 }
+
+type UserCreate struct {
+	Username string `json:"username" example:"johndoe"`
+	Email    string `json:"email" example:"johndoe@gmail.com"`
+	Password string `json:"password" example:"passwordJohndoe"`
+}
+
+type ErrorResponse struct {
+	Error string `json:"error"`
+}

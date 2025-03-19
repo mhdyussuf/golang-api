@@ -1,0 +1,172 @@
+definitions:
+  models.ErrorMsgResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  models.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  models.MessageCreate:
+    properties:
+      content:
+        example: Hai Apa kabar?
+        type: string
+      user_id:
+        example: 1
+        type: integer
+    type: object
+  models.MessageResponse:
+    properties:
+      content:
+        type: string
+      conversation_id:
+        type: integer
+      id_message:
+        type: integer
+      sent_at:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  models.UserCreate:
+    properties:
+      email:
+        example: johndoe@gmail.com
+        type: string
+      password:
+        example: passwordJohndoe
+        type: string
+      username:
+        example: johndoe
+        type: string
+    type: object
+  models.UserResponse:
+    properties:
+      created_at:
+        type: string
+      email:
+        type: string
+      id_user:
+        type: integer
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /conversations/{id}/messages:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      parameters:
+      - description: Conversation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.MessageResponse'
+            type: array
+        "404":
+          description: Not Found
+          schema:
+            items:
+              type: array
+            type: array
+      summary: Show an Message
+      tags:
+      - messages
+    post:
+      consumes:
+      - application/json
+      description: Create Message by conversation id
+      parameters:
+      - description: Conversation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.MessageCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.MessageResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorMsgResponse'
+      summary: Create an Message
+      tags:
+      - messages
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: Create User
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create an user
+      tags:
+      - users
+  /users/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Show an user
+      tags:
+      - users
+swagger: "2.0"

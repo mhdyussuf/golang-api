@@ -8,7 +8,7 @@ Assignment Tasks
 
 3. API Documentation (OpenAPI)
     ● Task: 
-        not completed
+        completed
 
 4. Unit Test : 
     - go test tests\user_test.go 
